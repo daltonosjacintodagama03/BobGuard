@@ -1,23 +1,182 @@
 {
   "name": "bobguard",
-  "displayName": "bobguard",
-  "description": "AI-powered code review using IBM Bob",
-  "version": "0.0.1",
+  "displayName": "BobGuard - AI Code Review",
+  "description": "Professional AI-powered code review using IBM Bob as intelligent analysis engine",
+  "version": "0.1.0",
+  "publisher": "bobguard",
   "engines": {
     "vscode": "^1.120.0"
   },
   "categories": [
+    "Linters",
+    "Programming Languages",
     "Other"
   ],
-  "activationEvents": [],
+  "keywords": [
+    "code review",
+    "security",
+    "performance",
+    "quality",
+    "ai",
+    "bob"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "bobguard",
+          "title": "BobGuard",
+          "icon": "resources/icons/bobguard-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "bobguard": [
+        {
+          "id": "bobguard.sidebar",
+          "name": "Code Review",
+          "type": "webview"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "bobguard.helloWorld",
-        "title": "Hello World"
+        "command": "bobguard.analyzeFile",
+        "title": "BobGuard: Analisar este ficheiro",
+        "icon": "$(search)"
+      },
+      {
+        "command": "bobguard.analyzeProject",
+        "title": "BobGuard: Analisar projeto completo",
+        "icon": "$(folder)"
+      },
+      {
+        "command": "bobguard.generateRoadmap",
+        "title": "BobGuard: Gerar Roadmap do Projeto",
+        "icon": "$(map)"
+      },
+      {
+        "command": "bobguard.login",
+        "title": "BobGuard: Login",
+        "icon": "$(sign-in)"
+      },
+      {
+        "command": "bobguard.logout",
+        "title": "BobGuard: Logout",
+        "icon": "$(sign-out)"
+      },
+      {
+        "command": "bobguard.addCustomRule",
+        "title": "BobGuard: Adicionar Regra Custom"
+      },
+      {
+        "command": "bobguard.toggleMode",
+        "title": "BobGuard: Alternar Modo (Minimal/Dashboard)"
+      },
+      {
+        "command": "bobguard.navigateToFinding",
+        "title": "BobGuard: Navegar para Finding"
+      },
+      {
+        "command": "bobguard.viewHistory",
+        "title": "BobGuard: Ver Histórico de Sessões"
+      },
+      {
+        "command": "bobguard.compareSession",
+        "title": "BobGuard: Comparar Sessões"
+      },
+      {
+        "command": "bobguard.deleteSession",
+        "title": "BobGuard: Apagar Sessão"
+      },
+      {
+        "command": "bobguard.refresh",
+        "title": "BobGuard: Atualizar",
+        "icon": "$(refresh)"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "bobguard.refresh",
+          "when": "view == bobguard.sidebar",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "bobguard.analyzeFile",
+          "group": "bobguard",
+          "when": "editorTextFocus"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "bobguard.analyzeProject",
+          "group": "bobguard"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "BobGuard",
+      "properties": {
+        "bobguard.mode": {
+          "type": "string",
+          "enum": [
+            "minimal",
+            "dashboard"
+          ],
+          "default": "minimal",
+          "description": "Modo de visualização: Minimal (lista simples) ou Dashboard (métricas e gráficos)"
+        },
+        "bobguard.customRules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Regras custom de análise em linguagem natural"
+        },
+        "bobguard.autoAnalyze": {
+          "type": "boolean",
+          "default": false,
+          "description": "Analisar automaticamente ao salvar ficheiro"
+        },
+        "bobguard.severityFilter": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "default": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ],
+          "description": "Filtrar findings por severidade"
+        },
+        "bobguard.firebase.projectId": {
+          "type": "string",
+          "default": "",
+          "description": "Firebase Project ID"
+        },
+        "bobguard.firebase.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Firebase API Key"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -25,16 +184,37 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package": "vsce package",
+    "deploy:web": "cd web && firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "firebase": "^10.7.1",
+    "firebase-admin": "^12.0.0",
+    "marked": "^11.1.0",
+    "chart.js": "^4.4.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/vscode": "^1.120.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
+    "@types/uuid": "^9.0.7",
+    "@types/marked": "^6.0.0",
     "typescript-eslint": "^8.56.1",
     "eslint": "^9.39.3",
     "typescript": "^5.9.3",
     "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
-  }
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/bobguard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/bobguard/issues"
+  },
+  "homepage": "https://github.com/yourusername/bobguard#readme",
+  "license": "MIT"
 }

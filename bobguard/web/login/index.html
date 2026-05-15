@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BobGuard - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <!-- Logo -->
+            <div class="logo">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="4"/>
+                    <path d="M40 20 L40 35 M40 45 L40 60" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="40" cy="40" r="3" fill="currentColor"/>
+                    <path d="M25 30 L55 30 L55 50 L25 50 Z" stroke="currentColor" stroke-width="3" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Title -->
+            <h1>BobGuard</h1>
+            <p class="subtitle">AI-Powered Code Review</p>
+
+            <!-- Login Methods -->
+            <div class="login-methods">
+                <!-- Google Sign In -->
+                <button id="googleSignIn" class="btn btn-google">
+                    <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+                        <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+                        <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/>
+                        <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z"/>
+                    </svg>
+                    Continuar com Google
+                </button>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+
+                <!-- Email/Password Form -->
+                <form id="emailForm" class="email-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Entrar
+                    </button>
+                </form>
+
+                <!-- Toggle Sign Up -->
+                <div class="toggle-mode">
+                    <span id="toggleText">Não tens conta?</span>
+                    <a href="#" id="toggleMode">Criar conta</a>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Autenticando...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message" style="display: none;"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Powered by IBM Bob • Análise inteligente de código</p>
+            <div class="links">
+                <a href="https://github.com/yourusername/bobguard" target="_blank">GitHub</a>
+                <span>•</span>
+                <a href="https://github.com/yourusername/bobguard#readme" target="_blank">Documentação</a>
+                <span>•</span>
+                <a href="https://github.com/yourusername/bobguard/issues" target="_blank">Suporte</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+    
+    <!-- Login Logic -->
+    <script src="login.js"></script>
+</body>
+</html>
