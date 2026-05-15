@@ -1,0 +1,28 @@
+# Dependencies
+bobguard/node_modules/
+
+# Compiled output
+bobguard/out/
+bobguard/dist/
+
+# VS Code extension package
+*.vsix
+
+# Build artifacts
+bobguard/*.js.map
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Bob sessions (opcionais, podes querer versionar as skills mas não os logs)
+.bob/sessions/
+.bob/cache/
