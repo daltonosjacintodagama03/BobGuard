@@ -116,7 +116,7 @@ export class AuthManager {
      */
     private async handleAuthCallback(uri: vscode.Uri): Promise<void> {
         try {
-            // URI esperado: vscode://publisher.bobguard/auth?token=<JWT>&userId=<ID>&email=<EMAIL>
+            // URI esperado: vscode://bobguard-team.bobguard/auth?token=<JWT>&userId=<ID>&email=<EMAIL>
             const query = new URLSearchParams(uri.query);
             const token = query.get('token');
             const userId = query.get('userId');
@@ -154,7 +154,7 @@ export class AuthManager {
      */
     private buildLoginUrl(): string {
         // Adiciona callback URL para a extensão
-        const callbackUrl = encodeURIComponent('vscode://publisher.bobguard/auth');
+        const callbackUrl = encodeURIComponent('vscode://bobguard.bobguard/auth');
         return `${URLS.LOGIN_PAGE}?callback=${callbackUrl}`;
     }
 

@@ -51,9 +51,9 @@ export const STORAGE_KEYS = {
  * URLs
  */
 export const URLS = {
-    LOGIN_PAGE: 'https://bobguard-auth.web.app/login',
-    DOCS: 'https://github.com/yourusername/bobguard#readme',
-    ISSUES: 'https://github.com/yourusername/bobguard/issues',
+    LOGIN_PAGE: 'http://localhost:8080/login',
+    DOCS: 'https://github.com/daltonosjacintodagama03/BobGuard#readme',
+    ISSUES: 'https://github.com/daltonosjacintodagama03/BobGuard/issues',
     FIREBASE_CONSOLE: 'https://console.firebase.google.com'
 } as const;
 

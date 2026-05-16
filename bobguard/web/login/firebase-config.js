@@ -1,13 +1,14 @@
 // Firebase Configuration for BobGuard
-// IMPORTANT: Replace these values with your actual Firebase project credentials
+// Configuração oficial do projeto BobGuard
 
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyBunarj3Gfies5ls-SGWoJ2QbDU442oRI0",
+    authDomain: "bobguard-36fb0.firebaseapp.com",
+    projectId: "bobguard-36fb0",
+    storageBucket: "bobguard-36fb0.firebasestorage.app",
+    messagingSenderId: "23080734713",
+    appId: "1:23080734713:web:6af9a2d965acfc85747728",
+    measurementId: "G-PG8JQWP36V"
 };
 
 // Initialize Firebase
@@ -16,15 +17,16 @@ try {
     console.log('Firebase initialized successfully');
 } catch (error) {
     console.error('Error initializing Firebase:', error);
-    alert('Erro ao inicializar Firebase. Por favor, verifica a configuração em firebase-config.js');
+    alert('Erro ao inicializar Firebase. Por favor, contacte o suporte.');
 }
 
-// Instructions:
-// 1. Go to https://console.firebase.google.com
-// 2. Create or select your project
-// 3. Go to Project Settings > General
-// 4. Under "Your apps", click the web icon (</>)
-// 5. Register your app and copy the configuration
-// 6. Replace the values above with your actual Firebase config
-// 7. Enable Authentication methods (Email/Password and Google) in Firebase Console
-// 8. Enable Firestore Database in Firebase Console
+// Firebase já está configurado para o projeto BobGuard
+// Se precisares usar tua própria instância Firebase:
+// 1. Vai a https://console.firebase.google.com
+// 2. Cria ou seleciona teu projeto
+// 3. Vai a Project Settings > General
+// 4. Em "Your apps", clica no ícone web (</>)
+// 5. Regista tua app e copia a configuração
+// 6. Substitui os valores acima pela tua configuração Firebase
+// 7. Ativa métodos de autenticação (Email/Password e Google) na Firebase Console
+// 8. Ativa Firestore Database na Firebase Console

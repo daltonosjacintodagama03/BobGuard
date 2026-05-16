@@ -2,8 +2,8 @@
   "name": "bobguard",
   "displayName": "BobGuard - AI Code Review",
   "description": "Professional AI-powered code review using IBM Bob as intelligent analysis engine",
-  "version": "0.1.0",
-  "publisher": "bobguard",
+  "version": "0.1.1",
+  "publisher": "bobguard-team",
   "engines": {
     "vscode": "^1.120.0"
   },

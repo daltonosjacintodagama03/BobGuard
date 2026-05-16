@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BobGuard - Segurança de Código com IA</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/svg+xml" href="../resources/icons/bobguard-icon.svg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../resources/icons/bobguard-icon.svg" alt="BobGuard Logo">
+                    <h1>BobGuard</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#funcionalidades">Funcionalidades</a>
+                    <a href="#como-usar">Como Usar</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="login/index.html" class="btn-login">Login</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Análise de Segurança Inteligente para Seu Código</h2>
+                <p class="hero-subtitle">
+                    BobGuard é uma extensão VS Code que utiliza IA para identificar vulnerabilidades 
+                    e gerar roadmaps de correção personalizados para seu projeto.
+                </p>
+                <div class="hero-actions">
+                    <a href="#como-usar" class="btn btn-primary">Começar Agora</a>
+                    <a href="https://github.com/daltonosjacintodagama03/BobGuard" target="_blank" class="btn btn-secondary">
+                        Ver no GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre o BobGuard</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Segurança Proativa</h3>
+                    <p>
+                        Identifica vulnerabilidades antes que se tornem problemas reais. 
+                        Análise profunda de código com foco em segurança.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🤖</div>
+                    <h3>Powered by Bob Shell</h3>
+                    <p>
+                        Integração com Bob Shell para análises contextuais e sugestões 
+                        inteligentes baseadas nas melhores práticas de segurança.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Roadmaps Personalizados</h3>
+                    <p>
+                        Gera planos de ação detalhados para corrigir vulnerabilidades, 
+                        priorizando por severidade e impacto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funcionalidades Section -->
+    <section id="funcionalidades" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Funcionalidades Principais</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-number">01</div>
+                    <div class="feature-content">
+                        <h3>Análise Automática de Código</h3>
+                        <p>
+                            Escaneia automaticamente seu projeto em busca de vulnerabilidades conhecidas, 
+                            código inseguro e más práticas de segurança.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">02</div>
+                    <div class="feature-content">
+                        <h3>Detecção de Vulnerabilidades</h3>
+                        <p>
+                            Identifica SQL Injection, XSS, CSRF, exposição de dados sensíveis, 
+                            e outras vulnerabilidades comuns do OWASP Top 10.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">03</div>
+                    <div class="feature-content">
+                        <h3>Navegação Inteligente</h3>
+                        <p>
+                            Interface sidebar integrada ao VS Code para navegar facilmente entre 
+                            vulnerabilidades encontradas e suas localizações no código.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">04</div>
+                    <div class="feature-content">
+                        <h3>Geração de Roadmaps</h3>
+                        <p>
+                            Cria planos de correção passo-a-passo, com priorização automática 
+                            baseada em severidade e contexto do projeto.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">05</div>
+                    <div class="feature-content">
+                        <h3>Sincronização Cloud</h3>
+                        <p>
+                            Salva análises e roadmaps no Firebase, permitindo acesso de qualquer 
+                            lugar e colaboração entre equipes.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">06</div>
+                    <div class="feature-content">
+                        <h3>Cache Local</h3>
+                        <p>
+                            Funciona offline com cache local, sincronizando automaticamente 
+                            quando a conexão é restaurada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Usar Section -->
+    <section id="como-usar" class="section">
+        <div class="container">
+            <h2 class="section-title">Como Usar</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Instalação</h3>
+                        <p>Clone o repositório e instale as dependências:</p>
+                        <pre><code>git clone git@github.com:daltonosjacintodagama03/BobGuard.git
+cd BobGuard
+docker-compose up -d</code></pre>
+                        <p class="step-note">Ou instale diretamente no VS Code via marketplace (em breve)</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Configuração</h3>
+                        <p>Faça login com sua conta Google ou email:</p>
+                        <ul>
+                            <li>Abra o VS Code</li>
+                            <li>Pressione <kbd>Ctrl+Shift+P</kbd> (ou <kbd>Cmd+Shift+P</kbd> no Mac)</li>
+                            <li>Digite "BobGuard: Login"</li>
+                            <li>Complete o processo de autenticação</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Análise</h3>
+                        <p>Execute a análise de segurança:</p>
+                        <ul>
+                            <li>Abra seu projeto no VS Code</li>
+                            <li>Pressione <kbd>Ctrl+Shift+P</kbd></li>
+                            <li>Digite "BobGuard: Analyze Project"</li>
+                            <li>Aguarde a conclusão da análise</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Correção</h3>
+                        <p>Navegue pelos resultados e corrija vulnerabilidades:</p>
+                        <ul>
+                            <li>Abra a sidebar do BobGuard</li>
+                            <li>Clique em uma vulnerabilidade para ver detalhes</li>
+                            <li>Gere um roadmap de correção</li>
+                            <li>Siga as instruções passo-a-passo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">O BobGuard funciona com qualquer linguagem de programação?</h3>
+                    <p class="faq-answer">
+                        Atualmente, o BobGuard tem melhor suporte para JavaScript, TypeScript, Python, 
+                        Java e PHP. Estamos constantemente expandindo o suporte para mais linguagens.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Preciso de conexão à internet para usar?</h3>
+                    <p class="faq-answer">
+                        Não necessariamente. O BobGuard funciona offline com cache local. A conexão 
+                        é necessária apenas para sincronização cloud e geração de roadmaps com IA.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Meus dados de código são enviados para algum servidor?</h3>
+                    <p class="faq-answer">
+                        Apenas metadados e resultados de análise são armazenados no Firebase. 
+                        O código fonte permanece local e nunca é enviado para servidores externos.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Como o BobGuard se compara a outras ferramentas de segurança?</h3>
+                    <p class="faq-answer">
+                        O BobGuard combina análise estática tradicional com IA contextual do Bob Shell, 
+                        oferecendo não apenas detecção, mas também roadmaps personalizados de correção.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Posso usar o BobGuard em projetos comerciais?</h3>
+                    <p class="faq-answer">
+                        Sim! O BobGuard é open source e pode ser usado livremente em projetos 
+                        pessoais e comerciais. Veja a licença no repositório para mais detalhes.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Como posso contribuir para o projeto?</h3>
+                    <p class="faq-answer">
+                        Contribuições são bem-vindas! Visite nosso repositório no GitHub, 
+                        abra issues para bugs ou sugestões, e envie pull requests com melhorias.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para Tornar Seu Código Mais Seguro?</h2>
+                <p>Comece a usar o BobGuard hoje e proteja seu projeto contra vulnerabilidades.</p>
+                <div class="cta-actions">
+                    <a href="login/index.html" class="btn btn-primary btn-large">Começar Agora</a>
+                    <a href="https://github.com/daltonosjacintodagama03/BobGuard" target="_blank" class="btn btn-secondary btn-large">
+                        Ver Documentação
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BobGuard</h4>
+                    <p>Segurança de código inteligente para desenvolvedores modernos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/daltonosjacintodagama03/BobGuard">GitHub</a></li>
+                        <li><a href="https://github.com/daltonosjacintodagama03/BobGuard/issues">Reportar Bug</a></li>
+                        <li><a href="https://github.com/daltonosjacintodagama03/BobGuard/blob/main/LICENSE">Licença</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#como-usar">Guia de Uso</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="https://github.com/daltonosjacintodagama03/BobGuard/wiki">Wiki</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BobGuard. Desenvolvido com ❤️ para a comunidade.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -45,6 +45,43 @@ BobGuard é uma extensão profissional para VS Code que oferece análise de cód
    bob --version
    ```
 
+### Instalação Rápida com Docker 🐳
+
+A forma mais simples de começar a usar o BobGuard é através do Docker:
+
+```bash
+# Clone o repositório
+git clone git@github.com:daltonosjacintodagama03/BobGuard.git
+cd BobGuard
+
+# Inicie os containers
+docker-compose up -d
+
+# Verifique se está a correr
+docker-compose ps
+```
+
+**Vantagens do Docker:**
+- ✅ Todas as dependências já configuradas
+- ✅ Ambiente isolado e consistente
+- ✅ Fácil de partilhar com a equipa
+- ✅ Sem conflitos com outras instalações
+
+**Comandos úteis:**
+```bash
+# Ver logs
+docker-compose logs -f
+
+# Parar containers
+docker-compose down
+
+# Reconstruir após mudanças
+docker-compose up -d --build
+
+# Executar testes
+docker-compose run --rm bobguard-test
+```
+
 ### Instalar Extensão
 
 #### Opção 1: Via VSIX (Recomendado)
@@ -56,6 +93,40 @@ BobGuard é uma extensão profissional para VS Code que oferece análise de cód
 #### Opção 2: Via Marketplace (Quando publicado)
 ```bash
 code --install-extension bobguard.bobguard
+```
+
+### Requisitos do Sistema para Docker
+
+- **Docker**: 20.10 ou superior
+- **Docker Compose**: 2.0 ou superior
+- **Espaço em disco**: ~500MB para imagens
+- **RAM**: Mínimo 2GB disponível
+
+**Instalar Docker:**
+- **Linux**: `curl -fsSL https://get.docker.com | sh`
+- **macOS/Windows**: [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
+### Troubleshooting Docker
+
+**Problema: "Cannot connect to Docker daemon"**
+```bash
+# Linux: Adicionar utilizador ao grupo docker
+sudo usermod -aG docker $USER
+# Fazer logout e login novamente
+```
+
+**Problema: "Port already in use"**
+```bash
+# Alterar porta no docker-compose.yml
+ports:
+  - "3001:3000"  # Usar porta 3001 em vez de 3000
+```
+
+**Problema: Mudanças no código não refletem**
+```bash
+# Reconstruir containers
+docker-compose down
+docker-compose up -d --build
 ```
 
 ## ⚙️ Configuração

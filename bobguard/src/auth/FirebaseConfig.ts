@@ -23,8 +23,9 @@ export class FirebaseConfig {
             const apiKey = config.get<string>(CONFIG_KEYS.FIREBASE_API_KEY);
 
             if (!projectId || !apiKey) {
-                Logger.warn('Firebase não configurado. Algumas funcionalidades estarão desabilitadas.');
-                return false;
+                Logger.warn('Firebase não configurado. Usando configuração padrão do BobGuard.');
+                // Usar configuração padrão do projeto
+                return this.initializeWithDefaultConfig();
             }
 
             const firebaseConfig = {
@@ -44,6 +45,33 @@ export class FirebaseConfig {
             return true;
         } catch (error) {
             Logger.error('Erro ao inicializar Firebase', error);
+            return false;
+        }
+    }
+
+    /**
+     * Inicializa com configuração padrão do BobGuard
+     */
+    private static initializeWithDefaultConfig(): boolean {
+        try {
+            const firebaseConfig = {
+                apiKey: "AIzaSyBunarj3Gfies5ls-SGWoJ2QbDU442oRI0",
+                authDomain: "bobguard-36fb0.firebaseapp.com",
+                projectId: "bobguard-36fb0",
+                storageBucket: "bobguard-36fb0.firebasestorage.app",
+                messagingSenderId: "23080734713",
+                appId: "1:23080734713:web:6af9a2d965acfc85747728",
+                measurementId: "G-PG8JQWP36V"
+            };
+
+            this.app = initializeApp(firebaseConfig);
+            this.auth = getAuth(this.app);
+            this.firestore = getFirestore(this.app);
+
+            Logger.info('Firebase inicializado com configuração padrão do BobGuard');
+            return true;
+        } catch (error) {
+            Logger.error('Erro ao inicializar Firebase com configuração padrão', error);
             return false;
         }
     }

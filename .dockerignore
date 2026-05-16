@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+npm-debug.log*
+
+# Build outputs
+out/
+dist/
+*.vsix
+
+# Git
+.git/
+.gitignore
+
+# VS Code
+.vscode/
+.vscode-test.mjs
+
+# Bob Shell
+.bob/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Documentation
+*.md
+!README.md
+
+# Test files
+**/*.test.ts
+**/*.spec.ts

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  bobguard-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bobguard-extension
+    volumes:
+      # Montar código fonte para desenvolvimento
+      - ./bobguard:/workspace/bobguard
+      # Preservar node_modules no container
+      - /workspace/bobguard/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    command: npm run watch
+    stdin_open: true
+    tty: true
+
+  # Serviço opcional para testes
+  bobguard-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bobguard-test
+    volumes:
+      - ./bobguard:/workspace/bobguard
+      - /workspace/bobguard/node_modules
+    command: npm test
+    profiles:
+      - test

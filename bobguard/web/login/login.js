@@ -17,7 +17,7 @@
 
     // Get callback URL from query params
     const urlParams = new URLSearchParams(window.location.search);
-    const callbackUrl = urlParams.get('callback') || 'vscode://publisher.bobguard/auth';
+    const callbackUrl = urlParams.get('callback') || 'vscode://bobguard.bobguard/auth';
 
     // Initialize Firebase Auth
     let auth;
